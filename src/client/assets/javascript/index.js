@@ -8,8 +8,8 @@ let store = {
 }
 
 // We need our javascript to wait until the DOM is loaded
-document.addEventListener("DOMContentLoaded", function() {
-	onPageLoad()
+document.addEventListener("DOMContentLoaded", async function() {
+	await onPageLoad()
 	setupClickHandlers()
 })
 
@@ -146,6 +146,7 @@ function handleSelectPodRacer(target) {
 	target.classList.add('selected')
 
 	// TODO - save the selected racer to the store
+    store.race_id = target.id
 }
 
 function handleSelectTrack(target) {
@@ -161,7 +162,7 @@ function handleSelectTrack(target) {
 	target.classList.add('selected')
 
 	// TODO - save the selected track id to the store
-	
+    store.track_id = target.id
 }
 
 function handleAccelerate() {
